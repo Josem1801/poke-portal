@@ -46,24 +46,6 @@ src/
 │   └── icons/            # JSX Icons
 ```
 
-## 🔒 Características de Seguridad
-
-- Almacenamiento local encriptado
-- Validación y sanitización de entradas
-- Rutas API protegidas
-
-## 📊 Estructura de Datos
-
-La aplicación utiliza una estructura de datos basada en árbol para la gestión de tareas, proporcionando:
-
-- Organización eficiente de tareas
-- Acceso rápido a tareas anidadas
-- Actualizaciones de estado optimizadas
-
-## 📝 Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
-
 ## 🔗 Recursos
 
 - [Next.js](https://nextjs.org/)
@@ -72,3 +54,7 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 - [React Hook Form](https://react-hook-form.com)
 - [Tailwind](https://tailwindcss.com)
 - [PokéAPI](https://pokeapi.co/api/v2/)
+
+## 📝 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.

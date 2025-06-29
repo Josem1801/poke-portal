@@ -14,7 +14,7 @@ type TypographyProps = {
 export const Typography = (props: TypographyProps) => {
   const { as, variant = 'body', size = 'base', className, children } = props;
 
-  const Component = as || 'h1';
+  const Component = as || 'span';
 
   return (
     <Component className={cn([

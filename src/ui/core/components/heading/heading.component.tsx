@@ -11,7 +11,7 @@ type HeadingProps = {
 };
 
 export const Heading = (props: HeadingProps) => {
-  const { as, variant = 'h1', gradient = false, children } = props;
+  const { as, variant = 'h1', gradient = false, className, children } = props;
 
   const Component = as || 'h1';
 
@@ -20,6 +20,7 @@ export const Heading = (props: HeadingProps) => {
       'font-bold leading-tight',
       HEADING_VARIANTS[variant],
       gradient ? HEADING_GRADIENT.visible : HEADING_GRADIENT.hidden,
+      className,
     ])}
     >
       {children}

@@ -29,8 +29,8 @@ export const Navbar = () => {
                 <Link
                   href={item.path}
                   className={cn([
-                    'font-semibold',
-                    isActive ? 'text-primary-900 underline' : 'text-white',
+                    'font-semibold text-white hover:underline',
+                    isActive && 'underline',
                   ])}
                 >
                   <Typography size="xl">{item.label}</Typography>

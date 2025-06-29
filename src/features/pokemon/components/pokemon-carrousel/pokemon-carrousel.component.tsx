@@ -1,19 +1,22 @@
 'use client';
 import React from 'react';
+import { normalizePages } from '@/shared/helpers/normalize-pages';
 import { Carrousel } from '@/ui/core/carrousel';
-import { usePokemonsListByNameQuery } from '../../api/use-pokemon-list-by-name';
-import { POKEMON_DESCRIPTIONS } from './pokemon-carrousel.const';
+import { usePokemonsQuery } from '../../api/use-pokemons';
 import { PokemonCarrouselItem } from './pokemon-carrousel.item';
 
+const CARROUSEL_ITEMS = 5;
+
 export const PokemonCarrousel = () => {
-  const pokemons = usePokemonsListByNameQuery({
+  const pokemonsQuery = usePokemonsQuery({
     variables: {
-      names: Object.keys(POKEMON_DESCRIPTIONS),
+      limit: CARROUSEL_ITEMS,
     },
   });
+  const pokemons = normalizePages(pokemonsQuery.data?.pages ?? []);
   return (
     <Carrousel>
-      {pokemons.data?.map(pokemon => (
+      {pokemons?.map(pokemon => (
         <PokemonCarrouselItem key={pokemon.id} pokemon={pokemon} />
       ))}
     </Carrousel>

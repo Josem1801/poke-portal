@@ -11,10 +11,26 @@
   --color-primary-800: #991b1b;
   --color-primary-900: #7f1d1d;
 
+  --color-gray-300: #e5e7eb;
   --color-gray-400: #9ca3af;
   --color-gray-500: #242424;
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
   --color-gray-850: #1a1f2e;
   --color-gray-900: #111827;
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }

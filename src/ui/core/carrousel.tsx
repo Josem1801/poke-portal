@@ -1,0 +1,91 @@
+'use client';
+import type { ReactNode } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { cn } from '@/shared/helpers/cn';
+import { useBoolean } from '@/shared/hooks/use-boolean';
+import { ArrowLeft } from '../icons/arrow-left';
+import { ArrowRight } from '../icons/arrow-right';
+import { Button } from './components/button';
+
+type CarrouselProps = {
+  children: ReactNode;
+  autoplayDelay?: number;
+};
+
+export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) => {
+  const [index, setIndex] = useState(0);
+  const isHovered = useBoolean(false);
+  const items = React.Children.toArray(children);
+
+  const handlePrevious = () => {
+    setIndex((prev) => {
+      const lastItem = items.length + 1;
+      return (prev - lastItem) % items.length;
+    });
+  };
+
+  const handleNext = useCallback(() => {
+    setIndex(prev => (prev + 1) % items.length);
+  }, [items.length]);
+
+  const handleGoTo = (index: number) => {
+    setIndex(index);
+  };
+
+  const isPrevDisabled = items.length <= 1;
+  const isNextDisabled = items.length <= 1;
+
+  useEffect(() => {
+    if (isHovered.value) {
+      return;
+    }
+
+    const interval = setInterval(handleNext, autoplayDelay);
+    return () => clearInterval(interval);
+  }, [autoplayDelay, handleNext, isHovered.value]);
+
+  return (
+    <div
+      className="w-full relative flex flex-col justify-center items-center gap-4"
+      onMouseEnter={isHovered.setTrue}
+      onMouseLeave={isHovered.setFalse}
+    >
+      <Button className="absolute left-8 z-50" variant="icon" onClick={handlePrevious} disabled={isPrevDisabled}>
+        <ArrowLeft className="size-10" />
+      </Button>
+
+      <div className="relative w-full overflow-hidden flex-1">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {items.map((item, i) => (
+            <div key={i} className="w-full flex-shrink-0">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Button className="absolute right-8" variant="icon" onClick={handleNext} disabled={isNextDisabled}>
+        <ArrowRight className="size-10" />
+      </Button>
+
+      {/* Dots */}
+      <div className="flex gap-2 absolute bottom-4 w-fit h-fit">
+        {items.map((_, i) => {
+          const isActive = i === index;
+          return (
+            <Button
+              key={i}
+              variant="icon"
+              onClick={() => handleGoTo(i)}
+              className={cn(isActive && 'scale-110 bg-white')}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};

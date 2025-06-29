@@ -15,25 +15,26 @@ type CarrouselProps = {
 export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) => {
   const [index, setIndex] = useState(0);
   const isHovered = useBoolean(false);
+
   const items = React.Children.toArray(children);
+  const total = items.length;
+
+  const isPrevDisabled = total <= 1;
+  const isNextDisabled = total <= 1;
 
   const handlePrevious = () => {
     setIndex((prev) => {
-      const lastItem = items.length + 1;
-      return (prev - lastItem) % items.length;
+      return (prev - 1 + total) % total;
     });
   };
 
   const handleNext = useCallback(() => {
-    setIndex(prev => (prev + 1) % items.length);
-  }, [items.length]);
+    setIndex(prev => (prev + 1) % total);
+  }, [total]);
 
   const handleGoTo = (index: number) => {
     setIndex(index);
   };
-
-  const isPrevDisabled = items.length <= 1;
-  const isNextDisabled = items.length <= 1;
 
   useEffect(() => {
     if (isHovered.value) {
@@ -54,18 +55,18 @@ export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) =
         <ArrowLeft className="size-10" />
       </Button>
 
-      <div className="relative w-full overflow-hidden flex-1">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-
-          style={{ transform: `translateX(-${index * 100}%)` }}
-        >
-          {items.map((item, i) => (
-            <div key={i} className="w-full flex-shrink-0">
-              {item}
-            </div>
-          ))}
-        </div>
+      <div className="w-full relative">
+        {items.map((child, i) => (
+          <div
+            key={i}
+            className={cn([
+              'transition-opacity duration-1000 ease-in-out ',
+              i === index ? 'opacity-100' : 'opacity-0 pointer-events-none h-0 overflow-hidden',
+            ])}
+          >
+            {child}
+          </div>
+        ))}
       </div>
 
       <Button className="absolute right-8" variant="icon" onClick={handleNext} disabled={isNextDisabled}>
@@ -81,7 +82,7 @@ export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) =
               key={i}
               variant="icon"
               onClick={() => handleGoTo(i)}
-              className={cn(isActive && 'scale-110 bg-white')}
+              className={cn(isActive && 'scale-110 bg-white hover:bg-white')}
             />
           );
         })}

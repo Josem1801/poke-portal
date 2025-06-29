@@ -1,1 +1,20 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* COLORS */
+  --color-primary-400: #f87171;
+  --color-primary-500: #ef4444;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #242424;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-850: #1a1f2e;
+  --color-gray-900: #111827;
+}

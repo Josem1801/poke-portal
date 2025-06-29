@@ -11,6 +11,7 @@ export const TYPOGRAPHY_SIZES = {
   'lg': 'text-lg',
   'xl': 'text-xl',
   '2xl': 'text-2xl',
+  '3xl': 'text-3xl md:text-6xl',
 };
 
 export type TypographyVariants = keyof typeof TYPOGRAPHY_VARIANTS;

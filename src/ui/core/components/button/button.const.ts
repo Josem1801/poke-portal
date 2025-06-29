@@ -5,7 +5,7 @@ export const BUTTON_VARIANTS = {
   link: 'bg-gradient-to-r from-red-600/20 to-red-500/20 text-red-400 font-semibold',
   ghost: 'text-gray-300 hover:text-white hover:bg-gray-800/50',
   icon: 'bg-white/20 aspect-square backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 duration-200',
-  white: 'bg-white w-fit text-red-600 px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 hover:bg-gray-50',
+  white: 'bg-white text-red-600 px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 hover:bg-gray-50',
 };
 
 export const BUTTON_SIZES = {

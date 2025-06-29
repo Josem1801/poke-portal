@@ -21,14 +21,12 @@ export type Response = {
   previous: string | null;
 };
 
-const LIMIT = 10;
-
 export const usePokemonsQuery = createInfiniteQuery<Response, Variables, AxiosError>({
   queryKey: ['pokemon'],
-  fetcher: async ({ limit }, { pageParam }) => {
+  fetcher: async ({ limit = 10 }, { pageParam }) => {
     const pokemonNames = await API.get<ResponseWithName>('/pokemon', {
       params: {
-        limit: LIMIT ?? limit,
+        limit,
         offset: pageParam,
       },
     }).then(({ data }) => data);
@@ -40,7 +38,6 @@ export const usePokemonsQuery = createInfiniteQuery<Response, Variables, AxiosEr
     return {
       ...pokemonNames,
       results: pokemonDetails,
-
     };
   },
   getNextPageParam: (lastPage: Response) => lastPage.next,

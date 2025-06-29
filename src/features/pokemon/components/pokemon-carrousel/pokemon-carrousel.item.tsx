@@ -2,7 +2,6 @@ import type { Pokemon } from '../../api/types';
 import Image from 'next/image';
 import { Badge } from '@/ui/core/badge';
 import { Button } from '@/ui/core/components/button';
-import { Heading } from '@/ui/core/components/heading';
 import { Typography } from '@/ui/core/components/typography';
 import { POKEMON_DESCRIPTIONS } from './pokemon-carrousel.const';
 
@@ -24,15 +23,15 @@ export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => 
       </div>
       {/* ---------------- */}
 
-      <div className="flex justify-between">
+      <div className="flex justify-between z-50">
         <div className="flex flex-col gap-5 justify-center">
           <Typography className="font-mono text-white">
             #
             {pokemon.id.toString().padStart(3, '0')}
           </Typography>
-          <Heading variant="h2" className="text-white capitalize">
+          <Typography size="3xl" className="text-white font-bold capitalize">
             {pokemon.name}
-          </Heading>
+          </Typography>
           {pokemon.types && (
             <div className="flex gap-3">
               {pokemon.types.map(type => (
@@ -45,7 +44,7 @@ export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => 
           <Typography size="xl">
             {POKEMON_DESCRIPTIONS[pokemon.name]}
           </Typography>
-          <Button size="lg" variant="white">
+          <Button size="lg" className="z-50">
             View Details
           </Button>
         </div>

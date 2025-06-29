@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import { cn } from '@/shared/helpers/cn';
-import { Typography } from './typography';
+import { Typography } from './components/typography';
 
 const navItems = [
   { path: '/', label: 'Inicio' },

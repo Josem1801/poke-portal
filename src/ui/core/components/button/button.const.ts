@@ -4,6 +4,7 @@ export const BUTTON_VARIANTS = {
   outline: 'border-2 border-red-500 hover:border-red-400 text-red-500 hover:text-white hover:bg-red-500 bg-transparent',
   link: 'bg-gradient-to-r from-red-600/20 to-red-500/20 text-red-400 font-semibold',
   ghost: 'text-gray-300 hover:text-white hover:bg-gray-800/50',
+  icon: 'bg-white/20 aspect-square backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-all duration-200',
 };
 
 export const BUTTON_SIZES = {

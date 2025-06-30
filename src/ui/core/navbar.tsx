@@ -19,7 +19,7 @@ export const Navbar = () => {
   return (
     <div className="max-w-fit inset-x-0 gap-40 mx-auto top-6 border-white/15 backdrop-blur-md border rounded-full px-10 absolute z-50 h-16 text-sm bg-white/20 flex justify-between items-center">
       <Link href="/">
-        <Image width={150} height={20} src="/assets/logo.png" alt="PokePortal" />
+        <Image width={150} height={20} className="aspect-auto" src="/assets/logo.png" alt="PokePortal" />
       </Link>
       <nav>
         <ul className="flex items-center gap-6">

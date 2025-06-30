@@ -19,10 +19,10 @@ export const PokemonDetail = ({ pokemon }: Props) => {
   const height = pokemon.height ? (pokemon.height / 10).toFixed(1) : '?';
   const weight = pokemon.weight ? (pokemon.weight / 10).toFixed(1) : '?';
   return (
-    <div
+    <section
       key={pokemon.id}
       className={cn([
-        'px-20 mx-5 bg-gradient-to-br py-10 relative h-[400px] rounded-2xl',
+        'px-8 md:px-20 mx-5 bg-gradient-to-br py-10 relative h-fit md:h-[400px] rounded-2xl',
         POKEMON_TYPE_BACKGROUND[type],
       ])}
     >
@@ -35,8 +35,8 @@ export const PokemonDetail = ({ pokemon }: Props) => {
         <div className="absolute bottom-1/4 left-1/2 w-6 h-6 bg-white rounded-full"></div>
       </div>
       {/* ---------------- */}
-      <FavoritePokemonButton pokemon={pokemon} className="absolute right-10 top-8" />
-      <div className="grid grid-cols-2 place-items-center z-50">
+      <FavoritePokemonButton pokemon={pokemon} className="absolute right-6 top-6 md:right-10 md:top-8 z-90" />
+      <div className="flex flex-col md:grid  md:grid-cols-2 place-items-center z-50">
         <Image alt={pokemon.name} width={300} height={300} className="object-contain animate-float" src={imageUrl} />
 
         <div className="flex flex-col w-full gap-5 justify-center">
@@ -77,6 +77,6 @@ export const PokemonDetail = ({ pokemon }: Props) => {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 };

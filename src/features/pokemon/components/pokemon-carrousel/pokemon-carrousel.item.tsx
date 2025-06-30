@@ -14,7 +14,7 @@ export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => 
   const imageUrl = pokemon?.sprites?.other?.['official-artwork']?.front_default
     || pokemon?.sprites?.front_default || '';
   return (
-    <div className="px-20 mx-5  py-10 relative h-[400px] rounded-2xl overflow-hidden">
+    <div className="px-4 sm:px-20 mx-5 relative min-h-[650px] sm:min-h-96 h-fit rounded-2xl overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 opacity-10 h-full">
         <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
@@ -24,7 +24,7 @@ export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => 
       </div>
       {/* ---------------- */}
 
-      <div className="flex justify-between z-50">
+      <div className="relative flex flex-col sm:flex-row items-center justify-between z-50">
         <div className="flex flex-col gap-5 justify-center">
           <Typography className="font-mono text-white">
             #
@@ -45,7 +45,7 @@ export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => 
           <Typography size="xl" className="max-w-md">
             {POKEMON_DESCRIPTIONS[pokemon.id]}
           </Typography>
-          <Link passHref href={`/pokemons/${pokemon.id}`} className="z-50">
+          <Link passHref href={`/pokemons/${pokemon.id}`} className="z-50 absolute sm:static -bottom-14 right-0">
             <Button size="lg">
               View Details
             </Button>

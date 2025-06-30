@@ -9,7 +9,7 @@ export const TYPOGRAPHY_SIZES = {
   'sm': 'text-sm',
   'base': 'text-base',
   'lg': 'text-lg',
-  'xl': 'text-xl',
+  'xl': 'text-base md:text-xl',
   '2xl': 'text-2xl',
   '3xl': 'text-3xl md:text-6xl',
 };

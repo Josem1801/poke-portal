@@ -52,7 +52,7 @@ export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) =
       onMouseLeave={isHovered.setFalse}
     >
       <Button className="absolute left-8 z-50" variant="icon" onClick={handlePrevious} disabled={isPrevDisabled}>
-        <ArrowLeft className="size-10" />
+        <ArrowLeft className="size-8 sm:size-10" />
       </Button>
 
       <div className="w-full relative">
@@ -69,8 +69,8 @@ export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) =
         ))}
       </div>
 
-      <Button className="absolute right-8" variant="icon" onClick={handleNext} disabled={isNextDisabled}>
-        <ArrowRight className="size-10" />
+      <Button className="absolute right-8 z-50" variant="icon" onClick={handleNext} disabled={isNextDisabled}>
+        <ArrowRight className="size-8 sm:size-10" />
       </Button>
 
       {/* Dots */}

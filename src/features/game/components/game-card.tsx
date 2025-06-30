@@ -1,3 +1,5 @@
+'use client';
+
 import type { Game } from '../api/types';
 import React from 'react';
 import { cn } from '@/shared/helpers/cn';
@@ -16,7 +18,7 @@ export const GameCard = ({ game }: PokemonCardProps) => {
         'hover:bg-gray-800/70  hover:border-gray-600/50 hover:shadow-2xl',
       ])}
     >
-      <div className="size-24 mx-auto grid place-items-center rounded-2xl bg-green-600 ">
+      <div className="size-24 mx-auto grid place-items-center rounded-2xl bg-red-500/10 backdrop-blur-2xl ">
         <GameController className="size-10" />
       </div>
       <Typography size="xl" className="capitalize text-white text-center font-bold">

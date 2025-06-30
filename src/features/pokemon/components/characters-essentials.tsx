@@ -13,7 +13,7 @@ export const CharactersEssentials = async () => {
     names: CHARACTERS_ESSENTIALS,
   });
   return (
-    <div className="flex justify-between gap-4">
+    <div className="flex *:w-full *:max-w-80 justify-evenly gap-4 flex-wrap">
       {pokemons?.map(pokemon => (
         <PokemonCard key={pokemon.id} pokemon={pokemon} />
       ))}

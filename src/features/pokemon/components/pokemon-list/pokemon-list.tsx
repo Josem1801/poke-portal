@@ -12,8 +12,9 @@ export const PokemonList = () => {
       limit: 9,
     },
   });
+
   const { ref, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.5,
     skip: !hasNextPage,
     delay: 500,
   });
@@ -31,10 +32,13 @@ export const PokemonList = () => {
 
   const pokemons = useMemo(() => normalizePages(data?.pages ?? []), [data]);
 
+  if (isLoading) {
+    return <SpinnerLinear className="mx-auto my-10" />;
+  }
+
   return (
     <Fragment>
-
-      <div className="flex min-h-dvh justify-between gap-8 flex-wrap *:max-w-72 py-20">
+      <div className="flex min-h-dvh justify-evenly gap-8 flex-wrap py-20">
         {
           pokemons.map(pokemon => (
             <PokemonCard key={pokemon.id} pokemon={pokemon} />

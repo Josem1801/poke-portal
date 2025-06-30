@@ -41,14 +41,14 @@ export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => 
               ))}
             </div>
           )}
-          <Typography size="xl">
-            {POKEMON_DESCRIPTIONS[pokemon.name]}
+          <Typography size="xl" className="max-w-md">
+            {POKEMON_DESCRIPTIONS[pokemon.id]}
           </Typography>
           <Button size="lg" className="z-50">
             View Details
           </Button>
         </div>
-        <Image alt={pokemon.name} width={250} height={250} className="object-cover animate-float" src={imageUrl} />
+        <Image alt={pokemon.name} width={300} height={300} className="object-contain animate-float" src={imageUrl} />
       </div>
     </div>
   );

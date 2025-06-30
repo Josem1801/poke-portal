@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import { normalizePages } from '@/shared/helpers/normalize-pages';
 import { Carrousel } from '@/ui/core/carrousel';

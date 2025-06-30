@@ -5,7 +5,7 @@ import { persist } from 'zustand/middleware';
 
 type State = {
   favorites: Record<number, Pokemon>;
-  search: string;
+  search: string | null;
 };
 
 type Actions = {
@@ -23,7 +23,7 @@ type PokemonStore = {
 
 const defaultStore: State = {
   favorites: {},
-  search: '',
+  search: null,
 };
 
 export const usePokemonStore = create<PokemonStore>()(

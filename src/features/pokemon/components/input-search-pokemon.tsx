@@ -17,7 +17,7 @@ export const InputSearchPokemon = () => {
 
   const pokemon = usePokemonByName({
     variables: {
-      name: searchPokemon,
+      name: searchPokemon || '',
     },
     enabled: !!searchPokemon,
   });

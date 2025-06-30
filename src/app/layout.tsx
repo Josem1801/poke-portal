@@ -4,6 +4,22 @@ import { ReactQueryProvider } from '@/shared/providers';
 import '@/ui/global.css';
 
 export const metadata: Metadata = {
+  openGraph: {
+    title: 'PokePortal – Pokémon Explorer',
+    description: 'Explore and favorite Pokémon with this responsive web app powered by PokeAPI.',
+    url: 'https://poke-portal-gamma.vercel.app',
+    siteName: 'PokePortal',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'PokePortal – Pokémon Explorer',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -33,9 +49,11 @@ export default async function RootLayout(props: {
   params: Promise<{ locale: string }>;
 }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body>
-        <ReactQueryProvider>{props.children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          {props.children}
+        </ReactQueryProvider>
       </body>
     </html>
   );

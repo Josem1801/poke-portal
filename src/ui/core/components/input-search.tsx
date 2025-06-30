@@ -2,7 +2,7 @@
 
 /* eslint-disable react/no-nested-component-definitions */
 import type { Props } from 'react-select';
-import ReactSelect from 'react-select';
+import dynamic from 'next/dynamic';
 
 import {
   Control,
@@ -10,6 +10,8 @@ import {
   Placeholder,
   selectStyles,
 } from './react-select';
+
+const ReactSelect = dynamic(() => import('react-select'), { ssr: false });
 
 export type SelectProps = Props;
 export const InputSearch = (props: SelectProps) => {

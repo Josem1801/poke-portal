@@ -44,6 +44,7 @@ export const InputSearchPokemon = () => {
   return (
     <div className="flex flex-col gap-20">
       <InputSearch
+        instanceId="pokemon-search"
         isClearable
         onChange={handleSelectPokemon}
         options={pokemonNameOptions}

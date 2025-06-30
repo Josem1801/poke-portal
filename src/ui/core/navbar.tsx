@@ -8,9 +8,9 @@ import { cn } from '@/shared/helpers/cn';
 import { Typography } from './components/typography';
 
 const navItems = [
-  { path: '/', label: 'Inicio' },
+  { path: '/', label: 'Home' },
+  { path: '/pokemons', label: 'Pokémon' },
   { path: '/games', label: 'Games' },
-  { path: '/search', label: 'Search' },
   { path: '/favorites', label: 'Favorites' },
 ];
 

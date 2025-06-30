@@ -23,7 +23,7 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
 
   const isFavorite = pokemonStore.actions.isFavorite(pokemon.id);
   const FavoriteIcon = isFavorite ? HeartFill : HeartOutline;
-  const imageUrl = pokemon?.sprites?.other?.['official-artwork']?.front_default ?? '';
+  const imageUrl = pokemon?.sprites?.front_default ?? '';
 
   const handleFavorite = (e: MouseEvent) => {
     e.stopPropagation();

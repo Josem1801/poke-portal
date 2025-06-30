@@ -7,13 +7,6 @@ import { usePokemonByName } from './use-pokemon-by-name';
 
 type Variables = { limit?: number };
 
-type ResponseWithName = {
-  results: Array<{
-    name: string;
-    url: string;
-  }>;
-} & Omit<Response, 'results'>;
-
 export type Response = {
   results: Array<Pokemon>;
   count: number;
@@ -21,10 +14,19 @@ export type Response = {
   previous: string | null;
 };
 
+type PokemonNames = {
+  results: Array<{
+    name: string;
+    url: string;
+  }>;
+} & Omit<Response, 'results'>;
+
+const LIMIT = 10;
+
 export const usePokemonsQuery = createInfiniteQuery<Response, Variables, AxiosError>({
-  queryKey: ['pokemon'],
-  fetcher: async ({ limit = 10 }, { pageParam }) => {
-    const pokemonNames = await API.get<ResponseWithName>('/pokemon', {
+  queryKey: ['pokemons'],
+  fetcher: async ({ limit = LIMIT }, { pageParam = 0 }) => {
+    const pokemonNames = await API.get<PokemonNames>('/pokemon', {
       params: {
         limit,
         offset: pageParam,
@@ -37,10 +39,18 @@ export const usePokemonsQuery = createInfiniteQuery<Response, Variables, AxiosEr
 
     return {
       ...pokemonNames,
-      results: pokemonDetails,
+      results: pokemonDetails ?? [],
     };
   },
-  getNextPageParam: (lastPage: Response) => lastPage.next,
   initialPageParam: 0,
+  getNextPageParam: ({ next, count }: Response) => {
+    const parsedUrl = new URL(next ?? '');
+    const offset = Number(parsedUrl.searchParams.get('offset')) - 10;
 
+    const skipCount = offset ?? 0;
+    if (count < skipCount + LIMIT) {
+      return undefined;
+    }
+    return skipCount + LIMIT;
+  },
 });

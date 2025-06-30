@@ -27,7 +27,7 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
     <Link
       href={`/pokemons/${pokemon.name}`}
       className={cn([
-        'group relative h-fit w-full max-w-96 cursor-pointer overflow-hidden rounded-2xl border border-gray-700/50 bg-gray-800/50 p-5 pt-10 backdrop-blur-sm transition-all duration-300',
+        'group relative h-fit w-full max-w-[320px] cursor-pointer overflow-hidden rounded-2xl border border-gray-700/50 bg-gray-800/50 p-5 pt-10 backdrop-blur-sm transition-all duration-300',
         'hover:scale-105 hover:border-gray-600/50 hover:bg-gray-800/70 hover:shadow-2xl',
       ])}
     >

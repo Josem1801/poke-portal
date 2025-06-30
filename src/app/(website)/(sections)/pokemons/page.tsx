@@ -5,7 +5,7 @@ import { Heading } from '@/ui/core/components/heading';
 export const metadata = {
   title: 'PokePortal | Explore All Pokémon',
   description: 'Find detailed stats, types, evolutions, and abilities for every Pokémon in the full Pokédex.',
-  keywords: ['PokePortal', 'Pokémon', 'Pokédex', 'Pokémon List', 'Types', 'Abilities', 'Next.js'],
+  keywords: ['PokePortal', 'Pokémon', 'Pokédex', 'Pokémon List', 'Types', 'Abilities'],
 };
 
 export default function Pokemons() {

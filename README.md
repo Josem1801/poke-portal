@@ -1,6 +1,32 @@
-# PokePortal
+# 🧩 PokePortal – Pokémon Explorer
+PokePortal is a responsive Pokémon explorer with search, favorites, and details powered by PokeAPI.
 
-Desarrollo de una interfaz responsiva con Next.js y Tailwind, consumiendo la PokéAPI, integrando buscador, favoritos y secciones esenciales.
+## 🚀 Requirements
+
+Make sure you have the following installed:
+
+- **Node.js** (v18 or higher recommended)  
+- **npm** 
+
+## 📦 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/pokeportal.git
+cd pokeportal
+
+# Install dependencies
+npm install
+
+## ⚙️ Set Environment Variables
+## Copy the example env file and customize your variables with: 
+## https://pokeapi.co/api/v2/
+
+cp .env.example .env.local
+
+# Start server
+npm run dev
+```
 
 ## 🚀 Características
 
@@ -21,12 +47,6 @@ Desarrollo de una interfaz responsiva con Next.js y Tailwind, consumiendo la Pok
 - Zustand
 - [PokéAPI](https://pokeapi.co/api/v2/)
 
-## 📋 Prerrequisitos
-
-- Node.js (v18 o superior)
-- Npm, Yarn o Pnpm
-- Git
-
 ## 🏗️ Estructura del Proyecto
 
 ```
@@ -39,10 +59,13 @@ src/
 │       └── store/        # Zustand store
 │       └── api/          # Api services
 ├── shared/               # Reusable and shared code
-│       └── lib/          # Utility libraries and helper functions
+│       └── config/       # Global config (axios, env, etc)
+│       └── helpers/      # Utility libraries and helper functions
 │       └── hooks/        # Custom React hooks for shared logic
+│       └── provideres/   # Providers configuration
 ├── ui/                   # Global styles and themes
-│   └── components/       # Reusable components
+│   └── core/             # Reusable components
+│       └── components/   # Reusable small components
 │   └── icons/            # JSX Icons
 ```
 

@@ -46,6 +46,10 @@ export const InputSearchPokemon = () => {
       <InputSearch
         instanceId="pokemon-search"
         isClearable
+        value={{
+          label: searchPokemon,
+          value: searchPokemon,
+        }}
         onChange={handleSelectPokemon}
         options={pokemonNameOptions}
         placeholder="Search a pokemon"

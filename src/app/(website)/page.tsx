@@ -18,7 +18,7 @@ export default function App() {
     <div className="w-full bg-gray-500 text-white">
       <section className="relative w-full">
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 via-red-800/20 to-transparent" />
-        <div className="relative mx-auto min-h-[850px] w-full max-w-6xl py-40 sm:py-60">
+        <div className="relative mx-auto min-h-[850px] w-full max-w-6xl pt-30 pb-40 sm:py-60">
           <PokemonCarrousel />
         </div>
       </section>

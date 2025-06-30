@@ -60,7 +60,7 @@ export const Carrousel = ({
       onMouseLeave={isHovered.setFalse}
     >
       <Button
-        className="absolute left-8 z-50"
+        className="absolute left-4 sm:left-8 z-50"
         variant="icon"
         onClick={handlePrevious}
         disabled={isPrevDisabled}
@@ -85,7 +85,7 @@ export const Carrousel = ({
       </div>
 
       <Button
-        className="absolute right-8 z-50"
+        className="absolute right-4 sm:right-8 z-50"
         variant="icon"
         onClick={handleNext}
         disabled={isNextDisabled}

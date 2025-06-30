@@ -5,8 +5,8 @@ PokePortal is a responsive Pokémon explorer with search, favorites, and details
 
 Make sure you have the following installed:
 
-- **Node.js** (v18 or higher recommended)  
-- **npm** 
+- **Node.js** (v18 or higher recommended)
+- **npm**
 
 ## 📦 Installation
 
@@ -19,7 +19,7 @@ cd pokeportal
 npm install
 
 ## ⚙️ Set Environment Variables
-## Copy the example env file and customize your variables with: 
+## Copy the example env file and customize your variables with:
 ## https://pokeapi.co/api/v2/
 
 cp .env.example .env.local

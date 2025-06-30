@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/no-children-to-array */
 'use client';
 
 import type { ReactNode } from 'react';

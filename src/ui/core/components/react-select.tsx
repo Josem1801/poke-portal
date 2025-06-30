@@ -32,6 +32,7 @@ export const Placeholder = ({ text }: { text: ReactNode }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const selectStyles = {
   container: (provided, state) => ({
     ...provided,

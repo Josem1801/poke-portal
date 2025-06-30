@@ -1,11 +1,14 @@
 import antfu from '@antfu/eslint-config';
 import nextPlugin from '@next/eslint-plugin-next';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default antfu(
   {
     react: true,
     typescript: true,
+
+    eslintConfigPrettier,
 
     // Configuration preferences
     lessOpinionated: true,
@@ -22,9 +25,7 @@ export default antfu(
     },
 
     // Ignored paths
-    ignores: [
-      'migrations/**/*',
-    ],
+    ignores: ['migrations/**/*'],
   },
   // --- Next.js Specific Rules ---
   {
@@ -40,16 +41,11 @@ export default antfu(
   jsxA11y.flatConfigs.recommended,
   // --- Testing Rules ---
   {
-    files: [
-      '**/*.test.ts?(x)',
-    ],
+    files: ['**/*.test.ts?(x)'],
   },
   // --- E2E Testing Rules ---
   {
-    files: [
-      '**/*.spec.ts',
-      '**/*.e2e.ts',
-    ],
+    files: ['**/*.spec.ts', '**/*.e2e.ts'],
   },
   {
     rules: {

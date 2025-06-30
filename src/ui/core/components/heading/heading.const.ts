@@ -8,7 +8,8 @@ export const HEADING_VARIANTS = {
 };
 
 export const HEADING_GRADIENT = {
-  visible: 'bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent',
+  visible:
+    'bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent',
   hidden: 'text-inherit',
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+
 import { usePokemonByName } from '@/features/pokemon/api/use-pokemon-by-name';
 import { usePokemonNamesQuery } from '@/features/pokemon/api/use-pokemon-names';
 import { PokemonDetail } from '@/features/pokemon/components/pokemon-detail/pokemon-detail';
@@ -20,7 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const pokemon = await usePokemonByName.fetcher({ name });
   const description = `${pokemon.name} is a ${pokemon.types?.map(t => t.type.name).join(', ')} type Pokémon. View stats, abilities, and more!`;
-  const image = pokemon.sprites?.other?.['official-artwork']?.front_default ?? pokemon.sprites?.front_default ?? '';
+  const image
+    = pokemon.sprites?.other?.['official-artwork']?.front_default
+      ?? pokemon.sprites?.front_default
+      ?? '';
   const pokemonName = capitalize(pokemon.name);
 
   return {

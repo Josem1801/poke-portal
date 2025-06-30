@@ -1,5 +1,4 @@
 import type { Dispatch, SetStateAction } from 'react';
-
 import { useCallback, useState } from 'react';
 
 type UseBooleanReturn = {

@@ -1,11 +1,20 @@
 import React from 'react';
+
 import { InputSearchPokemon } from '@/features/pokemon/components/input-search-pokemon';
 import { Heading } from '@/ui/core/components/heading';
 
 export const metadata = {
   title: 'PokePortal | Explore All Pokémon',
-  description: 'Find detailed stats, types, evolutions, and abilities for every Pokémon in the full Pokédex.',
-  keywords: ['PokePortal', 'Pokémon', 'Pokédex', 'Pokémon List', 'Types', 'Abilities'],
+  description:
+    'Find detailed stats, types, evolutions, and abilities for every Pokémon in the full Pokédex.',
+  keywords: [
+    'PokePortal',
+    'Pokémon',
+    'Pokédex',
+    'Pokémon List',
+    'Types',
+    'Abilities',
+  ],
 };
 
 export default function Pokemons() {
@@ -19,4 +28,4 @@ export default function Pokemons() {
       <InputSearchPokemon />
     </section>
   );
-};
+}

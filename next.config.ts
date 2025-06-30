@@ -1,5 +1,7 @@
 import type { NextConfig } from 'next';
+
 import withBundleAnalyzer from '@next/bundle-analyzer';
+
 import './src/shared/config/env';
 
 // Define the base Next.js configuration
@@ -12,16 +14,15 @@ const baseConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
-        pathname: '/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/**',
+        pathname:
+          '/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/**',
       },
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
         pathname: '/PokeAPI/sprites/master/sprites/pokemon/**',
       },
-
     ],
-
   },
   poweredByHeader: false,
   reactStrictMode: true,

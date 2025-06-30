@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { cn } from '@/shared/helpers/cn';
 import { Typography } from '@/ui/core/components/typography';
+
 import { usePokemonStore } from '../store';
 
 const LIMIT = 9;
@@ -23,7 +25,7 @@ export const FavoritesPokemonCount = ({ classNames }: Props) => {
     <Typography
       size="sm"
       className={cn([
-        'w-6 h-6 grid place-items-center p-0 rounded-full bg-red-500 text-white',
+        'grid h-6 w-6 place-items-center rounded-full bg-red-500 p-0 text-white',
         classNames,
       ])}
     >

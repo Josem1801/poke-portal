@@ -1,8 +1,11 @@
 'use client';
+
 import type { ReactNode } from 'react';
 import React, { useCallback, useEffect, useState } from 'react';
+
 import { cn } from '@/shared/helpers/cn';
 import { useBoolean } from '@/shared/hooks/use-boolean';
+
 import { ArrowLeft } from '../icons/arrow-left';
 import { ArrowRight } from '../icons/arrow-right';
 import { Button } from './components/button';
@@ -12,7 +15,10 @@ type CarrouselProps = {
   autoplayDelay?: number;
 };
 
-export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) => {
+export const Carrousel = ({
+  children,
+  autoplayDelay = 5_000,
+}: CarrouselProps) => {
   const [index, setIndex] = useState(0);
   const isHovered = useBoolean(false);
 
@@ -47,21 +53,28 @@ export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) =
 
   return (
     <div
-      className="w-full relative flex flex-col justify-center items-center gap-4"
+      className="relative flex w-full flex-col items-center justify-center gap-4"
       onMouseEnter={isHovered.setTrue}
       onMouseLeave={isHovered.setFalse}
     >
-      <Button className="absolute left-8 z-50" variant="icon" onClick={handlePrevious} disabled={isPrevDisabled}>
+      <Button
+        className="absolute left-8 z-50"
+        variant="icon"
+        onClick={handlePrevious}
+        disabled={isPrevDisabled}
+      >
         <ArrowLeft className="size-8 sm:size-10" />
       </Button>
 
-      <div className="w-full relative">
+      <div className="relative w-full">
         {items.map((child, i) => (
           <div
             key={i}
             className={cn([
-              'transition-opacity duration-1000 ease-in-out ',
-              i === index ? 'opacity-100' : 'opacity-0 pointer-events-none h-0 overflow-hidden',
+              'transition-opacity duration-1000 ease-in-out',
+              i === index
+                ? 'opacity-100'
+                : 'pointer-events-none h-0 overflow-hidden opacity-0',
             ])}
           >
             {child}
@@ -69,12 +82,17 @@ export const Carrousel = ({ children, autoplayDelay = 5_000 }: CarrouselProps) =
         ))}
       </div>
 
-      <Button className="absolute right-8 z-50" variant="icon" onClick={handleNext} disabled={isNextDisabled}>
+      <Button
+        className="absolute right-8 z-50"
+        variant="icon"
+        onClick={handleNext}
+        disabled={isNextDisabled}
+      >
         <ArrowRight className="size-8 sm:size-10" />
       </Button>
 
       {/* Dots */}
-      <div className="flex gap-2 absolute bottom-4 w-fit h-fit">
+      <div className="absolute bottom-4 flex h-fit w-fit gap-2">
         {items.map((_, i) => {
           const isActive = i === index;
           return (

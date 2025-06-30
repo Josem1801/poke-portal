@@ -1,5 +1,7 @@
 import type { ButtonSizes, ButtonTags, ButtonVariants } from './button.const';
+
 import React from 'react';
+
 import { cn } from '@/shared/helpers/cn';
 import { BUTTON_SIZES, BUTTON_VARIANTS } from './button.const';
 
@@ -27,8 +29,8 @@ export const Button = (props: ButtonProps) => {
     <button
       type="button"
       className={cn(
-        'cursor-pointer w-fit flex flex-nowrap items-center justify-center gap-2 font-semibold transition-all duration-300 rounded-xl',
-        'disabled:opacity-50 disabled:cursor-not-allowed',
+        'flex w-fit cursor-pointer flex-nowrap items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300',
+        'disabled:cursor-not-allowed disabled:opacity-50',
         BUTTON_SIZES[size],
         BUTTON_VARIANTS[variant],
         className,

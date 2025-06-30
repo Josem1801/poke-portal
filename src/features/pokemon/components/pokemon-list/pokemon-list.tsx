@@ -1,13 +1,23 @@
 'use client';
+
 import React, { Fragment, useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
+
 import { normalizePages } from '@/shared/helpers/normalize-pages';
 import { SpinnerLinear } from '@/ui/core/components/load-indicator';
+
 import { usePokemonsQuery } from '../../api/use-pokemons';
 import { PokemonCard } from '../pokemon-card/pokemon-card';
 
 export const PokemonList = () => {
-  const { data, hasNextPage, isFetchingNextPage, isFetching, isLoading, fetchNextPage } = usePokemonsQuery({
+  const {
+    data,
+    hasNextPage,
+    isFetchingNextPage,
+    isFetching,
+    isLoading,
+    fetchNextPage,
+  } = usePokemonsQuery({
     variables: {
       limit: 9,
     },
@@ -38,12 +48,10 @@ export const PokemonList = () => {
 
   return (
     <Fragment>
-      <div className="flex min-h-dvh justify-evenly gap-8 flex-wrap">
-        {
-          pokemons.map(pokemon => (
-            <PokemonCard key={pokemon.id} pokemon={pokemon} />
-          ))
-        }
+      <div className="flex min-h-dvh flex-wrap justify-evenly gap-8">
+        {pokemons.map(pokemon => (
+          <PokemonCard key={pokemon.id} pokemon={pokemon} />
+        ))}
       </div>
       {isLoadingMore && <SpinnerLinear className="mx-auto" />}
       {!isLoading && <div ref={ref} className="h-12" />}

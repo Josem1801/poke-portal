@@ -1,6 +1,7 @@
 import type { AxiosError } from 'axios';
 
 import type { Pokemon } from './types';
+
 import { createInfiniteQuery } from 'react-query-kit';
 import { usePokemonByName } from './use-pokemon-by-name';
 import { usePokemonNamesQuery } from './use-pokemon-names';
@@ -16,7 +17,11 @@ export type Response = {
 
 const LIMIT = 10;
 
-export const usePokemonsQuery = createInfiniteQuery<Response, Variables, AxiosError>({
+export const usePokemonsQuery = createInfiniteQuery<
+  Response,
+  Variables,
+  AxiosError
+>({
   queryKey: ['pokemons'],
   fetcher: async ({ limit = LIMIT }, ctx) => {
     const pokemonNames = await usePokemonNamesQuery.fetcher({
@@ -24,9 +29,13 @@ export const usePokemonsQuery = createInfiniteQuery<Response, Variables, AxiosEr
       offset: ctx?.pageParam,
     });
 
-    const pokemonDetails = await Promise.all(pokemonNames.results.map(async (pokemon) => {
-      return await usePokemonByName.fetcher({ name: pokemon.name.toLowerCase() });
-    }));
+    const pokemonDetails = await Promise.all(
+      pokemonNames.results.map(async (pokemon) => {
+        return await usePokemonByName.fetcher({
+          name: pokemon.name.toLowerCase(),
+        });
+      }),
+    );
 
     return {
       ...pokemonNames,

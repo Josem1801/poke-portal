@@ -1,5 +1,6 @@
 import type { Pokemon } from '../api/types';
 import { create } from 'zustand';
+
 import { persist } from 'zustand/middleware';
 
 type State = {

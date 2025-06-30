@@ -1,4 +1,5 @@
 import type { AxiosError } from 'axios';
+
 import type { Pokemon } from './types';
 
 import { createQuery } from 'react-query-kit';

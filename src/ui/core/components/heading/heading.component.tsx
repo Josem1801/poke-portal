@@ -1,4 +1,5 @@
 import type { HeadingVariants } from './heading.const';
+
 import { cn } from '@/shared/helpers/cn';
 import { HEADING_GRADIENT, HEADING_VARIANTS } from './heading.const';
 
@@ -16,12 +17,13 @@ export const Heading = (props: HeadingProps) => {
   const Component = as || 'h1';
 
   return (
-    <Component className={cn([
-      'font-bold leading-tight',
-      HEADING_VARIANTS[variant],
-      gradient ? HEADING_GRADIENT.visible : HEADING_GRADIENT.hidden,
-      className,
-    ])}
+    <Component
+      className={cn([
+        'leading-tight font-bold',
+        HEADING_VARIANTS[variant],
+        gradient ? HEADING_GRADIENT.visible : HEADING_GRADIENT.hidden,
+        className,
+      ])}
     >
       {children}
     </Component>

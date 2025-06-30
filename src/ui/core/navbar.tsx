@@ -1,11 +1,15 @@
 'use client';
+
 import Image from 'next/image';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+
 import { FavoritesPokemonCount } from '@/features/pokemon/components/favorites-pokemon-count';
 import { cn } from '@/shared/helpers/cn';
 import { useBoolean } from '@/shared/hooks/use-boolean';
+
 import { Menu } from '../icons/menu';
 import { Button } from './components/button';
 import { Typography } from './components/typography';
@@ -21,19 +25,28 @@ export const Navbar = () => {
   const navbarStatus = useBoolean();
   const pathname = usePathname();
   return (
-    <div className={cn([
-      'max-w-fit inset-x-0 gap-10 md:gap-40 mx-auto top-6 border-white/15 backdrop-blur-md border rounded-full px-10 absolute z-[999] py-2 text-sm bg-white/20 flex justify-between items-center',
-      navbarStatus.value && 'rounded-b-none rounded-t-md',
-    ])}
+    <div
+      className={cn([
+        'absolute inset-x-0 top-6 z-[999] mx-auto flex max-w-fit items-center justify-between gap-10 rounded-full border border-white/15 bg-white/20 px-10 py-2 text-sm backdrop-blur-md md:gap-40',
+        navbarStatus.value && 'rounded-t-md rounded-b-none',
+      ])}
     >
       <Link href="/">
-        <Image width={125} height={20} className="aspect-auto size-auto max-w-80" src="/assets/logo.png" alt="PokePortal" />
+        <Image
+          width={125}
+          height={20}
+          className="aspect-auto size-auto max-w-80"
+          src="/assets/logo.png"
+          alt="PokePortal"
+        />
       </Link>
       <nav>
-        <ul className={cn([
-          'items-center gap-6 hidden sm:flex',
-          navbarStatus.value && 'absolute flex flex-col w-[calc(100%+2px)] z-[999] rounded-b-sm -bottom-48 -left-px border-x border-t-0 py-3 border-white/15 bg-white/20 backdrop-blur-2xl ',
-        ])}
+        <ul
+          className={cn([
+            'hidden items-center gap-6 sm:flex',
+            navbarStatus.value
+            && 'absolute -bottom-48 -left-px z-[999] flex w-[calc(100%+2px)] flex-col rounded-b-sm border-x border-t-0 border-white/15 bg-white/20 py-3 backdrop-blur-2xl',
+          ])}
         >
           {navItems.map((item) => {
             const isActive = item.path === pathname;
@@ -43,21 +56,27 @@ export const Navbar = () => {
                 <Link
                   href={item.path}
                   className={cn([
-                    'font-semibold text-white hover:underline relative',
+                    'relative font-semibold text-white hover:underline',
                     isActive && 'underline',
                   ])}
                 >
                   <Typography size="xl">{item.label}</Typography>
-                  {
-                    isFavorite ? <FavoritesPokemonCount classNames="absolute -top-5 -right-5" /> : null
-                  }
+                  {isFavorite
+                    ? (
+                        <FavoritesPokemonCount classNames="absolute -top-5 -right-5" />
+                      )
+                    : null}
                 </Link>
               </li>
             );
           })}
         </ul>
       </nav>
-      <Button onClick={navbarStatus.toggle} variant="icon" className="bg-transparent hover:bg-transparent block sm:hidden">
+      <Button
+        onClick={navbarStatus.toggle}
+        variant="icon"
+        className="block bg-transparent hover:bg-transparent sm:hidden"
+      >
         <Menu />
       </Button>
     </div>

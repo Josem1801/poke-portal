@@ -35,9 +35,7 @@ export default async function RootLayout(props: {
   return (
     <html lang="es">
       <body>
-        <ReactQueryProvider>
-          {props.children}
-        </ReactQueryProvider>
+        <ReactQueryProvider>{props.children}</ReactQueryProvider>
       </body>
     </html>
   );

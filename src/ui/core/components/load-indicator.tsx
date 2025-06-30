@@ -19,10 +19,9 @@ export const SpinnerLinear = ({ className }: Props) => {
   return (
     <div
       className={cn([
-        'size-10 aspect-square border-4 border-gray-500 border-t-red-500 rounded-full animate-spin',
+        'aspect-square size-10 animate-spin rounded-full border-4 border-gray-500 border-t-red-500',
         className,
       ])}
     />
-
   );
 };

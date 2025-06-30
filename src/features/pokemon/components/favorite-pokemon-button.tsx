@@ -1,10 +1,13 @@
 'use client';
+
 import type { MouseEvent } from 'react';
 import type { Pokemon } from '../api/types';
+
 import React from 'react';
 import { cn } from '@/shared/helpers/cn';
 import { Button } from '@/ui/core/components/button';
 import { HeartFill } from '@/ui/icons/heart-fill';
+
 import { HeartOutline } from '@/ui/icons/heart-outline';
 import { usePokemonStore } from '../store';
 
@@ -34,10 +37,7 @@ export const FavoritePokemonButton = ({ className, pokemon }: Props) => {
     <Button
       onClick={handleFavorite}
       variant="icon"
-      className={cn([
-        isFavorite && 'bg-red-500 hover:bg-red-500',
-        className,
-      ])}
+      className={cn([isFavorite && 'bg-red-500 hover:bg-red-500', className])}
     >
       <FavoriteIcon width={26} height={26} />
     </Button>

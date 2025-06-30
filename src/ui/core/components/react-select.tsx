@@ -1,8 +1,13 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import type { ControlProps, DropdownIndicatorProps, StylesConfig } from 'react-select';
+import type {
+  ControlProps,
+  DropdownIndicatorProps,
+  StylesConfig,
+} from 'react-select';
 import { components } from 'react-select';
+
 import { Search } from '@/ui/icons/search';
 
 export const Control = (props: ControlProps & { text?: string }) => {
@@ -22,7 +27,9 @@ export const DropdownIndicator = (props: DropdownIndicatorProps) => {
 };
 
 export const Placeholder = ({ text }: { text: ReactNode }) => {
-  return <p className="absolute ml-1 text-md font-bold text-gray-400">{text}</p>;
+  return (
+    <p className="text-md absolute ml-1 font-bold text-gray-400">{text}</p>
+  );
 };
 
 export const selectStyles = {

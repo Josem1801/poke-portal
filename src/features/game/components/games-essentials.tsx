@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useGamesQuery } from '../api/use-games';
 import { GameCard } from './game-card';
 
@@ -8,12 +9,10 @@ export const GamesEssentials = async () => {
     limit: GAMES_LIMIT,
   });
   return (
-    <div className="flex *:w-full *:max-w-80 justify-evenly gap-4 flex-wrap">
-      {
-        gamesQuery?.results?.map(game => (
-          <GameCard key={game.name} game={game} />
-        ))
-      }
+    <div className="flex flex-wrap justify-evenly gap-4 *:w-full *:max-w-80">
+      {gamesQuery?.results?.map(game => (
+        <GameCard key={game.name} game={game} />
+      ))}
     </div>
   );
 };

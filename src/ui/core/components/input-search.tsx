@@ -1,20 +1,21 @@
 'use client';
+
 /* eslint-disable react/no-nested-component-definitions */
 import type { Props } from 'react-select';
 import ReactSelect from 'react-select';
 
-import { Control, DropdownIndicator, Placeholder, selectStyles } from './react-select';
+import {
+  Control,
+  DropdownIndicator,
+  Placeholder,
+  selectStyles,
+} from './react-select';
 
 export type SelectProps = Props;
 export const InputSearch = (props: SelectProps) => {
-  const {
-    instanceId,
-    placeholder,
-    isSearchable = true,
-    ...field
-  } = props;
+  const { instanceId, placeholder, isSearchable = true, ...field } = props;
   return (
-    <div className="relative flex rounded-md border-2 w-full  max-w-md mx-auto">
+    <div className="relative mx-auto flex w-full max-w-md rounded-md border-2">
       <ReactSelect
         instanceId={instanceId}
         components={{
@@ -27,7 +28,6 @@ export const InputSearch = (props: SelectProps) => {
         styles={selectStyles}
         {...field}
       />
-
     </div>
   );
 };

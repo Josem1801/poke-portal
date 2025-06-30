@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Carrousel } from '@/ui/core/carrousel';
+
 import { usePokemonsQuery } from '../../api/use-pokemons';
 import { PokemonCarrouselItem } from './pokemon-carrousel.item';
 

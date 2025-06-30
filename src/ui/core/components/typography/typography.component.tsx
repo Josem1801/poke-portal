@@ -1,5 +1,11 @@
-import type { TypographySizes, TypographyTags, TypographyVariants } from './typography.const';
+import type {
+  TypographySizes,
+  TypographyTags,
+  TypographyVariants,
+} from './typography.const';
+
 import React from 'react';
+
 import { cn } from '@/shared/helpers/cn';
 import { TYPOGRAPHY_SIZES, TYPOGRAPHY_VARIANTS } from './typography.const';
 
@@ -17,13 +23,14 @@ export const Typography = (props: TypographyProps) => {
   const Component = as || 'span';
 
   return (
-    <Component className={cn([
-      TYPOGRAPHY_VARIANTS[variant],
-      TYPOGRAPHY_SIZES[size],
-      className,
-    ])}
+    <Component
+      className={cn([
+        TYPOGRAPHY_VARIANTS[variant],
+        TYPOGRAPHY_SIZES[size],
+        className,
+      ])}
     >
-      { children}
+      {children}
     </Component>
   );
 };

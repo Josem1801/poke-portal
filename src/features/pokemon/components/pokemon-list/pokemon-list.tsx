@@ -38,7 +38,7 @@ export const PokemonList = () => {
 
   return (
     <Fragment>
-      <div className="flex min-h-dvh justify-evenly gap-8 flex-wrap py-20">
+      <div className="flex min-h-dvh justify-evenly gap-8 flex-wrap">
         {
           pokemons.map(pokemon => (
             <PokemonCard key={pokemon.id} pokemon={pokemon} />

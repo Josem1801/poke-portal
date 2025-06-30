@@ -4,6 +4,7 @@ import { persist } from 'zustand/middleware';
 
 type State = {
   favorites: Record<number, Pokemon>;
+  search: string;
 };
 
 type Actions = {
@@ -11,6 +12,7 @@ type Actions = {
   removeFromFavorites: (pokemonId: number) => void;
   isFavorite: (pokemonId: number) => boolean;
   getFavoritesList: () => Pokemon[];
+  setSearch: (value: string) => void;
 };
 
 type PokemonStore = {
@@ -18,8 +20,9 @@ type PokemonStore = {
   actions: Actions;
 };
 
-const defaultStore = {
+const defaultStore: State = {
   favorites: {},
+  search: '',
 };
 
 export const usePokemonStore = create<PokemonStore>()(
@@ -41,7 +44,6 @@ export const usePokemonStore = create<PokemonStore>()(
           set((store) => {
             const updated = { ...store.state.favorites };
             delete updated[pokemonId];
-
             return {
               state: {
                 ...store.state,
@@ -55,6 +57,13 @@ export const usePokemonStore = create<PokemonStore>()(
         getFavoritesList: () => {
           return Object.values(get().state.favorites);
         },
+        setSearch: (value: string) =>
+          set(store => ({
+            state: {
+              ...store.state,
+              search: value,
+            },
+          })),
       },
     }),
     {
@@ -62,6 +71,7 @@ export const usePokemonStore = create<PokemonStore>()(
       partialize: store => ({
         state: {
           favorites: store.state.favorites,
+          search: store.state.search,
         },
       }),
     },

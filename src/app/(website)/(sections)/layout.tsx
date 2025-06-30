@@ -6,7 +6,7 @@ import { ArrowLeft } from '@/ui/icons/arrow-left';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <div className="py-32 max-w-6xl mx-auto px-10 flex flex-col gap-6">
+    <div className="py-32 max-w-6xl mx-auto px-6 sm:px-10 flex flex-col gap-6">
       <Link passHref href="/" className="w-fit">
         <Button as="a" variant="link" className="hover:underline">
           <ArrowLeft />

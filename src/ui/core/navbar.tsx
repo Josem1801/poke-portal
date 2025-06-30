@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import { FavoritesPokemonCount } from '@/features/pokemon/components/favorites-pokemon-count';
 import { cn } from '@/shared/helpers/cn';
 import { Typography } from './components/typography';
 
@@ -24,16 +25,20 @@ export const Navbar = () => {
         <ul className="flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = item.path === pathname;
+            const isFavorite = item.path === '/favorites';
             return (
               <li key={item.path}>
                 <Link
                   href={item.path}
                   className={cn([
-                    'font-semibold text-white hover:underline',
+                    'font-semibold text-white hover:underline relative',
                     isActive && 'underline',
                   ])}
                 >
                   <Typography size="xl">{item.label}</Typography>
+                  {
+                    isFavorite ? <FavoritesPokemonCount classNames="absolute -top-5 -right-5" /> : null
+                  }
                 </Link>
               </li>
             );

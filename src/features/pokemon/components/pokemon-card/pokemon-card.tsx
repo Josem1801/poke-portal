@@ -9,6 +9,7 @@ import { Button } from '@/ui/core/components/button';
 import { Typography } from '@/ui/core/components/typography';
 import { HeartFill } from '@/ui/icons/heart-fill';
 import { HeartOutline } from '@/ui/icons/heart-outline';
+import { usePokemonStore } from '../../store';
 import { POKEMON_TYPE_COLOR } from './pokemon-card.const';
 
 type PokemonCardProps = {
@@ -17,14 +18,22 @@ type PokemonCardProps = {
   isFavorite?: boolean;
 };
 
-export const PokemonCard = ({ pokemon, onFavorite, isFavorite }: PokemonCardProps) => {
+export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
+  const pokemonStore = usePokemonStore();
+
+  const isFavorite = pokemonStore.actions.isFavorite(pokemon.id);
   const FavoriteIcon = isFavorite ? HeartFill : HeartOutline;
   const imageUrl = pokemon?.sprites?.other?.['official-artwork']?.front_default ?? '';
 
   const handleFavorite = (e: MouseEvent) => {
     e.stopPropagation();
     e.preventDefault();
-    onFavorite?.(pokemon);
+    const { addToFavorites, removeFromFavorites } = pokemonStore.actions;
+    if (isFavorite) {
+      removeFromFavorites(pokemon.id);
+    } else {
+      addToFavorites(pokemon);
+    }
   };
 
   return (
@@ -44,7 +53,7 @@ export const PokemonCard = ({ pokemon, onFavorite, isFavorite }: PokemonCardProp
         variant="icon"
         className={cn([
           'absolute right-4 top-4 z-90',
-          isFavorite && 'bg-red-500',
+          isFavorite && 'bg-red-500 hover:bg-red-500',
         ])}
       >
         <FavoriteIcon width={26} height={26} />

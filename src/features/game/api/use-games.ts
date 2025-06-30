@@ -5,7 +5,10 @@ import { createQuery } from 'react-query-kit';
 
 import { API } from '@/shared/config/api';
 
-type Variables = void;
+type Variables = {
+  limit?: number;
+  offset?: number;
+} | void;
 
 type Response = {
   results: Array<Game>;
@@ -13,8 +16,10 @@ type Response = {
 
 export const useGamesQuery = createQuery<Response, Variables, AxiosError>({
   queryKey: ['games'],
-  fetcher: async () => {
-    const { data } = await API.get<Response>(`/version`);
+  fetcher: async (params) => {
+    const { data } = await API.get<Response>(`/version`, {
+      params,
+    });
     return data;
   },
 });

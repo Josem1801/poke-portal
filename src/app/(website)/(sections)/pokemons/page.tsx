@@ -22,7 +22,7 @@ export default function Pokemons() {
     <section className="flex flex-col gap-6">
       <header>
         <Heading gradient variant="h2" className="text-center">
-          Pokémon Collention
+          Pokémon Collection
         </Heading>
       </header>
       <InputSearchPokemon />

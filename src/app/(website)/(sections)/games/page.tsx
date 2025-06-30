@@ -22,7 +22,7 @@ export default function Games() {
     <section className="flex flex-col gap-2">
       <header>
         <Heading gradient variant="h2" className="text-center">
-          Games Collention
+          Games Collection
         </Heading>
       </header>
       <GamesList />

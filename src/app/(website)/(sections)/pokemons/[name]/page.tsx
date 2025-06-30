@@ -5,13 +5,13 @@ import { PokemonDetail } from '@/features/pokemon/components/pokemon-detail/poke
 import { capitalize } from '@/shared/helpers/capitalize';
 
 type Props = {
-  params: { name: string };
+  params: Promise<{ name: string }>;
 };
 
 export const revalidate = 86_400; // 1 day
 
 export async function generateStaticParams() {
-  const pokemons = await usePokemonNamesQuery.fetcher({});
+  const pokemons = await usePokemonNamesQuery.fetcher({ limit: 10_000 });
   return pokemons.results.map(pokemon => ({ name: pokemon.name }));
 }
 
@@ -21,29 +21,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pokemon = await usePokemonByName.fetcher({ name });
   const description = `${pokemon.name} is a ${pokemon.types?.map(t => t.type.name).join(', ')} type Pokémon. View stats, abilities, and more!`;
   const image = pokemon.sprites?.other?.['official-artwork']?.front_default ?? pokemon.sprites?.front_default ?? '';
-  const pokemonNmae = capitalize(pokemon.name);
+  const pokemonName = capitalize(pokemon.name);
+
   return {
-    title: `${pokemonNmae} | PokePortal`,
+    title: `${pokemonName} | PokePortal`,
     description,
     openGraph: {
-      title: `${pokemonNmae}`,
-      description: `Explore ${pokemonNmae}'s full Pokédex entry, including types, abilities, and evolutions.`,
+      title: pokemonName,
+      description: `Explore ${pokemonName}'s full Pokédex entry, including types, abilities, and evolutions.`,
       images: [
         {
           url: image,
           width: 400,
           height: 400,
-          alt: `${pokemonNmae}`,
+          alt: pokemonName,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pokemonNmae}`,
-      description: `Explore ${pokemonNmae}'s full Pokédex entry, including types, abilities, and evolutions.`,
-      images: [
-        image,
-      ],
+      title: pokemonName,
+      description: `Explore ${pokemonName}'s full Pokédex entry, including types, abilities, and evolutions.`,
+      images: [image],
     },
   };
 }

@@ -28,7 +28,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-## 🚀 Características
+## 🚀 Features
 
 - Explore Pokémon.
 - Search by name.
@@ -36,7 +36,7 @@ npm run dev
 - Clear sections.
 - Responsive design.
 
-## 🛠️ Tecnologías
+## 🛠️ Technologies
 
 - React
 - Next.js
@@ -47,7 +47,7 @@ npm run dev
 - Zustand
 - [PokéAPI](https://pokeapi.co/api/v2/)
 
-## 🏗️ Estructura del Proyecto
+## 🏗️ Project Structure
 
 ```
 public/                   # Static assets
@@ -69,7 +69,7 @@ src/
 │   └── icons/            # JSX Icons
 ```
 
-## 🔗 Recursos
+## 🔗 Resources
 
 - [Next.js](https://nextjs.org/)
 - [React Query](https://tanstack.com/query/latest)
@@ -78,6 +78,6 @@ src/
 - [Tailwind](https://tailwindcss.com)
 - [PokéAPI](https://pokeapi.co/api/v2/)
 
-## 📝 Licencia
+## 📝 License
 
 Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.

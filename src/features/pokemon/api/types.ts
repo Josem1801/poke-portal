@@ -4,6 +4,7 @@ export type Pokemon = {
   url: string;
   sprites?: {
     front_default: string;
+    front_female: string;
     other?: {
       'official-artwork'?: {
         front_default: string;

@@ -1,5 +1,6 @@
 import type { Pokemon } from '../../api/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Badge } from '@/ui/core/badge';
 import { Button } from '@/ui/core/components/button';
 import { Typography } from '@/ui/core/components/typography';
@@ -11,9 +12,9 @@ type PokemonCarrouselItemProps = {
 
 export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => {
   const imageUrl = pokemon?.sprites?.other?.['official-artwork']?.front_default
-    || pokemon?.sprites?.front_default || '/assets/default.png';
+    || pokemon?.sprites?.front_default || '';
   return (
-    <div key={pokemon.id} className="px-20 mx-5  py-10 relative h-[400px] rounded-2xl overflow-hidden">
+    <div className="px-20 mx-5  py-10 relative h-[400px] rounded-2xl overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 opacity-10 h-full">
         <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
@@ -44,9 +45,11 @@ export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => 
           <Typography size="xl" className="max-w-md">
             {POKEMON_DESCRIPTIONS[pokemon.id]}
           </Typography>
-          <Button size="lg" className="z-50">
-            View Details
-          </Button>
+          <Link passHref href={`/pokemons/${pokemon.id}`} className="z-50">
+            <Button size="lg">
+              View Details
+            </Button>
+          </Link>
         </div>
         <Image alt={pokemon.name} width={300} height={300} className="object-contain animate-float" src={imageUrl} />
       </div>

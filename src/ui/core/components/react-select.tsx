@@ -28,7 +28,7 @@ export const DropdownIndicator = (props: DropdownIndicatorProps) => {
 
 export const Placeholder = ({ text }: { text: ReactNode }) => {
   return (
-    <p className="text-md absolute ml-1 font-bold text-gray-400">{text}</p>
+    <p className="text-md absolute ml-1 mt-0.5 font-bold text-gray-400">{text}</p>
   );
 };
 

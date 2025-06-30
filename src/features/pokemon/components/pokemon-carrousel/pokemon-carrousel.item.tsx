@@ -13,9 +13,9 @@ export const PokemonCarrouselItem = ({ pokemon }: PokemonCarrouselItemProps) => 
   const imageUrl = pokemon?.sprites?.other?.['official-artwork']?.front_default
     || pokemon?.sprites?.front_default || '/assets/default.png';
   return (
-    <div key={pokemon.id} className="px-20 mx-5 py-10 relative h-96 rounded-2xl overflow-hidden">
+    <div key={pokemon.id} className="px-20 mx-5  py-10 relative h-[400px] rounded-2xl overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 h-full">
         <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
         <div className="absolute bottom-10 right-10 w-16 h-16 border-2 border-white rounded-full"></div>
         <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-white rounded-full"></div>

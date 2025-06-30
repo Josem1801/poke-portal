@@ -27,7 +27,7 @@ export const Navbar = () => {
   return (
     <div
       className={cn([
-        'absolute inset-x-0 top-6 z-[999] mx-auto flex max-w-fit items-center justify-between gap-10 rounded-full border border-white/15 bg-white/20 px-10 py-2 text-sm backdrop-blur-md md:gap-40',
+        'absolute inset-x-0 top-6 z-[99999] mx-auto flex max-w-fit items-center justify-between gap-10 rounded-full border border-white/15 bg-white/20 px-10 py-2 text-sm backdrop-blur-md md:gap-40',
         navbarStatus.value && 'rounded-t-md rounded-b-none',
       ])}
     >
@@ -45,7 +45,7 @@ export const Navbar = () => {
           className={cn([
             'hidden items-center gap-6 sm:flex',
             navbarStatus.value
-            && 'absolute -bottom-48 -left-px z-[999] flex w-[calc(100%+2px)] flex-col rounded-b-sm border-x border-t-0 border-white/15 bg-white/20 py-3 backdrop-blur-2xl',
+            && 'absolute -bottom-52 -left-px z-[99999] border-b flex w-[calc(100%+2px)] flex-col rounded-b-sm border-x border-t-0 border-white/15 bg-gray-500 pt-4 pb-6 backdrop-blur-2xl',
           ])}
         >
           {navItems.map((item) => {
@@ -55,6 +55,7 @@ export const Navbar = () => {
               <li key={item.path}>
                 <Link
                   href={item.path}
+                  onClick={navbarStatus.setFalse}
                   className={cn([
                     'relative font-semibold text-white hover:underline',
                     isActive && 'underline',

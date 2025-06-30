@@ -1,3 +1,4 @@
+import { GamesEssentials } from '@/features/game/components/games-essentials';
 import { CharactersEssentials } from '@/features/pokemon/components/characters-essentials';
 import { PokemonCarrousel } from '@/features/pokemon/components/pokemon-carrousel';
 import { Button } from '@/ui/core/components/button';
@@ -20,7 +21,7 @@ export default function App() {
         </div>
 
       </section>
-      <section className="py-40 gap-10 flex flex-col max-w-6xl mx-auto px-10 bg-gray-500 w-full">
+      <section className="pt-40 gap-10 flex flex-col max-w-6xl mx-auto px-10 bg-gray-500 w-full">
         <header className="flex items-center justify-between">
           <Heading variant="h2">
             Characters Essentials
@@ -33,7 +34,19 @@ export default function App() {
         </header>
         <CharactersEssentials />
       </section>
-
+      <section className="pt-40 pb-80 gap-10 flex flex-col max-w-6xl mx-auto px-10 bg-gray-500 w-full">
+        <header className="flex items-center justify-between">
+          <Heading variant="h2">
+            Game Essentials
+          </Heading>
+          <Button variant="primary" className=" gap-2 flex">
+            See all
+            {' '}
+            <ArrowRight />
+          </Button>
+        </header>
+        <GamesEssentials />
+      </section>
     </div>
   );
 }

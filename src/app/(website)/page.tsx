@@ -7,7 +7,9 @@ import { Heading } from '@/ui/core/components/heading';
 import { ArrowRight } from '@/ui/icons/arrow-right';
 
 export const metadata = {
-  title: 'Inicio | PokePortal',
+  title: 'PokePortal | Explore all Pokémon',
+  description: 'Find detailed stats, types, and abilities for every Pokémon.',
+  keywords: ['PokePortal', 'Pokémon', 'Pokédex', 'Next.js'],
 };
 
 export default function App() {
@@ -37,7 +39,7 @@ export default function App() {
       </section>
       <section className="pt-40 pb-80 gap-10 flex flex-col max-w-6xl mx-auto px-10 bg-gray-500 w-full">
         <header className="flex items-center justify-between">
-          <Heading variant="h2">
+          <Heading variant="h3">
             Game Essentials
           </Heading>
           <Button variant="primary" className=" gap-2 flex">
